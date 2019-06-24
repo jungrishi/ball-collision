@@ -129,24 +129,15 @@ function Animation(parent) {
     // requestAnimationFrame(() => this.animate());
   }
   this.animate = function() {
-
-    for (var i= 0; i < boxes.length; i++){
-    
-        boxes[i].moveBox();
-        boxes[i].draw();
-    }
-    
     for (var i= 0; i < boxes.length; i++){
       const box = boxes[i];
-        // const other = boxes.slice(i + 1);
-        // console.log(other);
-        
+        box.moveBox();
+        box.draw();
       for (var j =0; j < boxes.length; j++){  
-      // for ( var b of other) {
           if ( i  != j ){
             box.checkCollision(boxes[j])
-            
         }
+        box.draw();
       }
         box.checkBoundaryCollision();
      
